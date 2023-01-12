@@ -1,7 +1,7 @@
 (() => {
-  const plugCheckout = document.querySelector("plug-checkout");
+  const malgaCheckout = document.querySelector("malga-checkout");
 
-  plugCheckout.paymentMethods = {
+  malgaCheckout.paymentMethods = {
     pix: {
       expiresIn: 3600,
     },
@@ -27,8 +27,8 @@
     },
   };
 
-  plugCheckout.transactionConfig = {
-    statementDescriptor: "#1 Demonstration Plug Checkout",
+  malgaCheckout.transactionConfig = {
+    statementDescriptor: "#1 Demonstration Malga Checkout",
     amount: 100,
     description: "",
     orderId: "",
@@ -37,21 +37,19 @@
     capture: false,
   };
 
-  plugCheckout.dialogConfig = {
+  malgaCheckout.dialogConfig = {
     show: true,
     actionButtonLabel: "Continuar",
     errorActionButtonLabel: "Tentar novamente",
     successActionButtonLabel: "Continuar",
-    successRedirectUrl: "https://www.plugpagamentos.com/",
-    pixFilledProgressBarColor: "#344383",
-    pixEmptyProgressBarColor: "#D8DFF0",
+    successRedirectUrl: "https://www.malga.io/",
   };
 
-  plugCheckout.addEventListener("paymentSuccess", ({ detail: { data } }) => {
+  malgaCheckout.addEventListener("paymentSuccess", ({ detail: { data } }) => {
     console.log(data);
   });
 
-  plugCheckout.addEventListener("paymentError", ({ detail: { error } }) => {
+  malgaCheckout.addEventListener("paymentError", ({ detail: { error } }) => {
     console.log(error);
   });
 })();
